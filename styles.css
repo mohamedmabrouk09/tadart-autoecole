@@ -767,7 +767,7 @@ ol {
 
 .benefits__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -1437,6 +1437,16 @@ ol {
    ============================================================ */
 
 @media (max-width: 1024px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(24px);
+  }
+
+  .reveal-left.visible,
+  .reveal-right.visible {
+    transform: translateY(0);
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1474,6 +1484,10 @@ ol {
     grid-template-columns: 1fr;
   }
 
+  .benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .contact__inner {
     grid-template-columns: 1fr;
   }
@@ -1495,7 +1509,7 @@ ol {
   .header__nav-list {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: min(84vw, 320px);
     height: 100vh;
     background: var(--navy);
@@ -1504,10 +1518,12 @@ ol {
     gap: 8px;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    will-change: transform;
   }
 
   .header__nav-list.open {
-    right: 0;
+    transform: translateX(0);
   }
 
   .header__nav-link {
@@ -1560,6 +1576,20 @@ ol {
 
   .hero__image {
     width: min(100%, 420px);
+  }
+
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(24px);
+  }
+
+  .reveal-left.visible,
+  .reveal-right.visible {
+    transform: translateY(0);
+  }
+
+  .benefits__grid {
+    grid-template-columns: 1fr;
   }
 
   .benefit-item,
@@ -1633,6 +1663,16 @@ ol {
 
   .contact__form {
     padding: 24px;
+  }
+
+  .header__nav-list {
+    width: 100vw;
+  }
+
+  .hero__content,
+  .about__text,
+  .location__info {
+    width: 100%;
   }
 
   .whatsapp-float {
